@@ -2,6 +2,7 @@ package com.chatforum.chat.chat;
 
 import com.chatforum.chat.chatroom.ChatRoomService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -10,7 +11,10 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class ChatMessageService {
+    @Autowired
     private ChatMessageRepository repository;
+
+    @Autowired
     private ChatRoomService chatRoomService;
 
     public ChatMessage save(ChatMessage chatMessage) {

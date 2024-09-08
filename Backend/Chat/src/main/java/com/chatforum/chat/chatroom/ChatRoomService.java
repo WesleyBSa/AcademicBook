@@ -1,6 +1,9 @@
 package com.chatforum.chat.chatroom;
 
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -9,8 +12,11 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
+@Getter
+@Setter
 public class ChatRoomService {
 
+    @Autowired
     private final ChatRoomRepository chatRoomRepository;
 
     public Optional<String> getChatRoomId(String senderId, String recipientId, boolean createNewRoomIfNotExists) {
