@@ -23,7 +23,7 @@ public class ChatRoomService {
         return chatRoomRepository.findBySenderIdAndRecipientId(senderId, recipientId)
                 .map(ChatRoom::getChatId)
                 .or(() -> {
-                    if (createNewRoomIfNotExists) {
+                     if (createNewRoomIfNotExists) {
                         var chatId = createChatId(senderId, recipientId);
                         return Optional.of(chatId);
                     }
@@ -46,6 +46,6 @@ public class ChatRoomService {
                 .build();
         chatRoomRepository.save(senderRecipient);
         chatRoomRepository.save(recipientSender);
-        return null;
+        return chatId;
     }
 }
